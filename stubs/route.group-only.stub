@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Support\Facades\Route;
+use App\Interfaces\RegistersRouteGroup;
+
+class {{ class }} implements RegistersRouteGroup
+{
+    public static function register()
+    {
+        Route::group(["prefix" => "{{ route_group }}", "as"=>"{{ route_group }}"],function(){
+            //
+        });
+    }
+
+}

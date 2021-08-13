@@ -1,0 +1,25 @@
+{
+    "name": "uutkukorkmaz/route-organizer",
+    "description": "Organizes route groups for laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "uutkukorkmaz",
+            "email": "uutkukorkmaz@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Uutkukorkmaz\\RouteOrganizer\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Uutkukorkmaz\\RouteOrganizer\\ServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Support\Facades\Route;
+use App\Interfaces\RegistersRouteGroup;
+use App\Http\Controllers\{{ controller }};
+use App\Models\{{ model }};
+
+class {{ class }} implements RegistersRouteGroup
+{
+    public static function register()
+    {
+        Route::group(["prefix" => "{{ route_group }}", "as"=>"{{ route_group }}"],function(){
+
+            Route::get('/',[{{ controller }}::class,'index'])
+                ->name('index');
+
+            Route::post('/',[{{ controller }}::class,'store'])
+                ->name('store');
+
+            Route::group(['prefix'=>'{{ model_lowercase }}','as'=>'{{ model_lowercase }}.'],function(){
+
+                Route::get('/', [{{ controller }}::class,'show'])
+                    ->name('show')
+                    ->missing(fn() => {{ controller }}::missing({{ model }}::class));
+
+                Route::post('/', [{{ controller }}::class,'update'])
+                    ->name('update')
+                    ->missing(fn() => {{ controller }}::missing({{ model }}::class));
+
+                Route::delete('/', [{{ controller }}::class,'destroy'])
+                    ->name('destroy')
+                    ->missing(fn() => {{ controller }}::missing({{ model }}::class));
+            });
+
+        });
+    }
+
+}
