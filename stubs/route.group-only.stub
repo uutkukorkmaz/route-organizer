@@ -3,7 +3,7 @@
 namespace {{ namespace }};
 
 use Illuminate\Support\Facades\Route;
-use App\Interfaces\RegistersRouteGroup;
+use Uutkukorkmaz\RouteOrganizer\RegistersRouteGroup;
 
 class {{ class }} implements RegistersRouteGroup
 {
