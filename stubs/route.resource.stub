@@ -11,10 +11,13 @@ class {{ class }} implements RegistersRouteGroup
 {
     public static function register()
     {
-        Route::group(["prefix" => "{{ route_group }}", "as"=>"{{ route_group }}"],function(){
+        Route::group(["prefix" => "{{ route_group }}", "as"=>"{{ route_group }}."],function(){
 
             Route::get('/',[{{ controller }}::class,'index'])
                 ->name('index');
+
+            Route::get('/new',[{{ controller }}::class,'create'])
+                ->name('create')
 
             Route::post('/',[{{ controller }}::class,'store'])
                 ->name('store');
@@ -23,6 +26,10 @@ class {{ class }} implements RegistersRouteGroup
 
                 Route::get('/', [{{ controller }}::class,'show'])
                     ->name('show')
+                    ->missing(fn() => {{ controller }}::missing({{ model }}::class));
+
+                Route::get('/edit',[{{ controller }}::class,'show'])
+                    ->name('edit')
                     ->missing(fn() => {{ controller }}::missing({{ model }}::class));
 
                 Route::post('/', [{{ controller }}::class,'update'])

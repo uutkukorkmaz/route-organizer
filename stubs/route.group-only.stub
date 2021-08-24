@@ -9,7 +9,7 @@ class {{ class }} implements RegistersRouteGroup
 {
     public static function register()
     {
-        Route::group(["prefix" => "{{ route_group }}", "as"=>"{{ route_group }}"],function(){
+        Route::group(["prefix" => "{{ route_group }}", "as"=>"{{ route_group }}."],function(){
             //
         });
     }
