@@ -28,7 +28,7 @@ class {{ class }} implements RegistersRouteGroup
                     ->name('show')
                     ->missing(fn() => {{ controller }}::missing({{ model }}::class));
 
-                Route::get('/edit',[{{ controller }}::class,'show'])
+                Route::get('/edit',[{{ controller }}::class,'edit'])
                     ->name('edit')
                     ->missing(fn() => {{ controller }}::missing({{ model }}::class));
 
